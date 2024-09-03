@@ -26,8 +26,7 @@
             if (!text) return alert('Please enter some text.');
 
             const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            const apiUrl = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyB1K9sihDyjnesjm5mpmlTBJZ_GuVy4nqc';
-
+            const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyB1K9sihDyjnesjm5mpmlTBJZ_GuVy4nqc';
             try {
                 const response = await fetch(proxyUrl + apiUrl, {
                     method: 'POST',
