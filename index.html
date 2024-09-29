@@ -1,48 +1,164 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Text Analysis</title>
-    <style>
-        /* Basic CSS for styling */
-        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f0f0; }
-        .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-        textarea { width: 100%; height: 100px; margin-bottom: 10px; }
-        button { padding: 10px 20px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-        #result { margin-top: 10px; white-space: pre-wrap; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap5/css/bootstrap.min.css">
+<link rel="stylesheet" href="fontawsome6/css/all.css">
+  <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <div class="container">
-        <h1>AI Text Analysis</h1>
-        <textarea id="inputText" placeholder="Enter text here..."></textarea>
-        <button id="analyzeButton">Analyze</button>
-        <div id="result"></div>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid p-1">
+      <a class="navbar-brand ms-1" href="#">Fatima's Delights</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-1 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Order Now</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <script>
-        document.getElementById('analyzeButton').addEventListener('click', async () => {
-            const text = document.getElementById('inputText').value.trim();
-            if (!text) return alert('Please enter some text.');
+  </nav>
 
-            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyB1K9sihDyjnesjm5mpmlTBJZ_GuVy4nqc';
-            try {
-                const response = await fetch(proxyUrl + apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ document: { type: 'PLAIN_TEXT', content: text } }),
-                });
 
-                if (!response.ok) throw new Error('Network response was not ok');
 
-                const result = await response.json();
-                document.getElementById('result').textContent = JSON.stringify(result, null, 2);
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('result').textContent = 'An error occurred. Please try again.';
-            }
-        });
-    </script>
+<div class="jumbotron jumbotron-fluid bg-white text-dark">
+  <div class="container py-5">
+    <h1 class="display-4 font-weight-bold">
+                <img class="img-fluid" src="img/wel.png" alt="Product Image">Welcome to Fatima's Delight!</h1>
+    <hr class="my-4 bg-light">
+    <p class="lead mb-4">Indulge in our handcrafted sweets and delightful experiences.</p>
+  </div>
+</div>
+
+
+
+
+  <!-- Product Showcase -->
+  <div class="container-fluid text-center">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12 mb-2">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="img/b.jpg" alt="Product Image">
+          <div class="card-body">
+            <h5 class="card-title">Chocolate Cake</h5>
+            <p class="card-text">Moist and delicious chocolate cake.</p>
+            <h5>₦500 - <small class="text-danger text-decoration-line-through">₦1000</small></h5>
+            <a href="#" class="btn btn-primary">Order Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12 mb-2">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="img/a.jpg" alt="Product Image">
+          <div class="card-body">
+            <h5 class="card-title">Strawberry Cupcake</h5>
+            <p class="card-text">Sweet and tangy strawberry cupcake.</p>
+                        <h5>₦1000 - <small class="text-danger text-decoration-line-through">₦1500</small></h5>
+            <a href="#" class="btn btn-primary">Order Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12 mb-2">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="img/c.jpg" alt="Product Image">
+          <div class="card-body">
+            <h5 class="card-title">Vanilla Muffin</h5>
+            <p class="card-text">Soft and fluffy vanilla muffin.</p>
+                        <h5>₦500 - <small class="text-danger text-decoration-line-through">₦1000</small></h5>
+            <a href="#" class="btn btn-primary">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 mb-2">
+          <div class="card">
+            <img class="card-img-top img-fluid" src="img/d.jpg" alt="Product Image">
+            <div class="card-body">
+              <h5 class="card-title">Vanilla Muffin</h5>
+              <p class="card-text">Soft and fluffy vanilla muffin.</p>
+                          <h5>₦2,500 - <small class="text-danger text-decoration-line-through">₦4,000</small></h5>
+              <a href="#" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+              <div class="col-md-4 col-sm-6 col-xs-12 mb-2">
+                <div class="card">
+                  <img class="card-img-top img-fluid" src="img/e.jpg" alt="Product Image">
+                  <div class="card-body">
+                    <h5 class="card-title">Vanilla Muffin</h5>
+                    <p class="card-text">Soft and fluffy vanilla muffin.</p>
+                   <h5>₦1500 - <small class="text-danger text-decoration-line-through">₦2000</small></h5>
+                    <a href="#" class="btn btn-primary">Order Now</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+              
+
+  <!-- Order Now Section -->
+  <div class="container-fluid bg-gray text-black text-center">
+    <h2>Contact Us</h2>
+    <p>Call/Text: +2347046775605 or Email: <a href="pages/contact.html">
+      <!--Tab to edit-->
+    </br>Contact Us</a></p>
+  </div>
+
+  <!-- Footer -->
+  
+<footer class="bg-dark text-white pt-1 pb-1">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+
+
+
+      <!-- Social media links -->
+      <div class="col-md-5 col-lg-4 mt-2">
+        <div class="text-center">
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item">
+              <a href="#" class="btn btn-outline-light btn-floating">
+                <i class="fab fa-facebook-f text-primary"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="btn btn-outline-light btn-floating">
+                <i class="fab fa-tiktok text-black"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="btn btn-outline-light btn-floating">
+                <i class="fab fa-whatsapp text-success"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="btn btn-outline-light btn-floating">
+                <i class="fab fa-instagram "></i>
+              </a>
+            </li>
+          </ul>
+              <hr class="my-4 bg-light">
+                  <!-- Footer Bottom -->
+        <div class="row align-items-center mt-4 text-center">
+          <div class="col-md-7 col-lg-8">
+            <p class="text-white">© 2024 All rights reserved. Fatima's Delight.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="bootstrap5/js/bootstrap.bundle.min.js"></script>
+
+<script src='fontawsome6/js/all.js'></script>
 </body>
 </html>
